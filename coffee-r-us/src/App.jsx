@@ -8,23 +8,7 @@ import { useEffect, useState } from 'react'
 
 function App() {
 
-  const [stores, setStores] = useState([])
   const [coffees, setCoffees] = useState([])
-
-  useEffect(() => {
-
-    fetch("http://localhost:8000/store_info")
-    .then(r => {
-
-      if(!r.ok) {throw new Error("Problem with the fetch")}
-
-      return r.json()
-
-    })
-    .then(data => setStores(data))
-    .catch(err => console.log(err))
-
-  }, [])
 
   useEffect(() => {
 
@@ -45,7 +29,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route element={<MainLayout coffees={coffees} stores={stores} />}>
+          <Route element={<MainLayout coffees={coffees} setCoffees={setCoffees} />}>
             <Route path="/" element={<Home />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/admin-portal" element={<AdminPortal />} />

@@ -1,14 +1,14 @@
 import { Outlet } from 'react-router-dom';
 import NavBar from './components/NavBar';
 
-function MainLayout({ coffees, stores }) {
+function MainLayout({ coffees, setCoffees }) {
 
     return (
         <div className="main-container">
 
             <NavBar />
 
-            <Outlet context={{ coffees, stores }} />
+            <Outlet context={{ coffees, setCoffees }} />
 
         </div>
     );

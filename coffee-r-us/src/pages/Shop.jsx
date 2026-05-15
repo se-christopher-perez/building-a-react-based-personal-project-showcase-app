@@ -1,17 +1,7 @@
 import React from 'react'
-import { useOutletContext } from 'react-router-dom'
+import CoffeeListings from '../components/CoffeeListings.jsx'
 
 function Shop() {
-
-    const { coffees, stores } = useOutletContext()
-
-    function handleClick() {
-
-        console.log(coffees)
-
-        console.log(stores)
-
-    }
 
     return (
         <>
@@ -19,8 +9,7 @@ function Shop() {
 
                 <h1>Shop!</h1>
 
-                <button onClick={() => handleClick()}>Coffee Data</button>
-                <button onClick={() => handleClick()}>Store Data</button>
+                <CoffeeListings />
 
             </div>
         </>
