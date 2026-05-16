@@ -1,4 +1,45 @@
-# React + Vite
+# Coffee R Us
+
+## Summary
+ A personal React-based project showcase application, using the provided mock-up design document, you will build a single-page application (SPA) that adheres to modern frontend development practices. The application will demonstrate proficiency in Advanced React concepts such as state management through hooks, event handling, data fetching, and client-side routing. The lab reflects real-world challenges junior developers may face, preparing you to build scalable and interactive React applications.
+
+## Implementations
+- React Hooks
+- React Router
+- Custom Hooks
+- Testing
+- Backend
+
+## Installations
+- react 
+- react-dom 
+- react-router-dom
+- json-server
+- vitest 
+- @testing-library/react 
+- @testing-library/user-event 
+- @testing-library/jest-dom
+- jsdom 
+- vite
+
+## Running app
+- npm run server
+- npm run dev
+
+## Running tests
+- npm run tests
+
+## Tools and Resources
+- Development Tools: A text editor or IDE (e.g., VS Code), browser developer tools, Node.js, and GitHub.
+
+- Mock-up Design Document: Summative Assessment Design Document (C5M8).
+
+- React Router Documentation
+
+- Testing Tools: Jest and React Testing Library.
+
+
+## React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
