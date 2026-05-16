@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useId } from 'react'
 
 function SearchBar({ search, setSearch }) {
 
     const inputRef = useRef(null)
+
+    const searchID = useId()
 
     useEffect(() => {
 
@@ -14,8 +16,8 @@ function SearchBar({ search, setSearch }) {
         <>
             <div className="search-container">
 
-                <label htmlFor="search-input"></label>
-                <input id="search-input" ref={inputRef} type="text" placeholder='Search...' value={search} onChange={(e) => setSearch(e.target.value)} />
+                <label htmlFor={searchID} >Search</label>
+                <input id={searchID} ref={inputRef} type="text" placeholder='Search...' value={search} onChange={(e) => setSearch(e.target.value)} />
 
             </div>
         </>

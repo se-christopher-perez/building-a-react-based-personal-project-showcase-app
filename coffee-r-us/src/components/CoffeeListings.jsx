@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useCoffeeContext } from '../context/CoffeeContext'
 import Coffee from './Coffee'
 import SearchBar from './SearchBar'
