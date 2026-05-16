@@ -1,9 +1,9 @@
 import React, { useState, useId } from "react"
-import { useOutletContext } from "react-router-dom"
+import { useCoffeeContext } from '../context/CoffeeContext'
 
 function Coffee({ coffee, handleDelete }) {
 
-    const { coffees, setCoffees } = useOutletContext()
+    const { coffees, setCoffees } = useCoffeeContext()
 
     const nameID = useId()
 

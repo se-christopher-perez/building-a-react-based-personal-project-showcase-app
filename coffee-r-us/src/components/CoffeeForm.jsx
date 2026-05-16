@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useId } from 'react'
-import { useOutletContext } from 'react-router-dom'
+import { useCoffeeContext } from '../context/CoffeeContext'
 
 function CoffeeForm() {
 
-    const { coffees, setCoffees } = useOutletContext()
+    const { coffees, setCoffees } = useCoffeeContext()
 
     const nameID = useId()
 
@@ -86,7 +86,7 @@ function CoffeeForm() {
                     <label htmlFor={priceID} >Price</label>
                     <input id={priceID} type="text" value={newCoffee.price} onChange={(e) => setNewCoffee((prevCoffee) => ({ ...prevCoffee, price: e.target.value }))} />
 
-                    <input type="submit" />
+                    <input type="submit" value="Submit"/>
 
                 </form>
 
