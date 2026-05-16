@@ -1,9 +1,17 @@
-import React, { useState } from "react"
+import React, { useState, useId } from "react"
 import { useOutletContext } from "react-router-dom"
 
 function Coffee({ coffee, handleDelete }) {
 
     const { coffees, setCoffees } = useOutletContext()
+
+    const nameID = useId()
+
+    const descriptionID = useId()
+
+    const originID = useId()
+
+    const priceID = useId()
 
     const [updateCoffee, setUpdateCoffee] = useState({
 
@@ -58,17 +66,17 @@ function Coffee({ coffee, handleDelete }) {
 
                 <form className="edit-form-container" onSubmit={handleSubmit}>
 
-                    <label htmlFor="name-input">Name:</label><br />
-                    <input id="name-input" type="text" placeholder={coffee.name} value={updateCoffee.name} onChange={(e) => setUpdateCoffee(prevUpdateCoffee => ({ ...prevUpdateCoffee, name: e.target.value }))} /><br /><br />
+                    <label htmlFor={nameID}>Name:</label><br />
+                    <input id={nameID} type="text" placeholder={coffee.name} value={updateCoffee.name} onChange={(e) => setUpdateCoffee(prevUpdateCoffee => ({ ...prevUpdateCoffee, name: e.target.value }))} /><br /><br />
 
-                    <label htmlFor="origin-input">Origin:</label><br />
-                    <input id="origin-input" type="text" placeholder={coffee.origin} value={updateCoffee.origin} onChange={(e) => setUpdateCoffee(prevUpdateCoffee => ({ ...prevUpdateCoffee, origin: e.target.value }))} /><br /><br />
+                    <label htmlFor={originID} >Origin:</label><br />
+                    <input id={originID} type="text" placeholder={coffee.origin} value={updateCoffee.origin} onChange={(e) => setUpdateCoffee(prevUpdateCoffee => ({ ...prevUpdateCoffee, origin: e.target.value }))} /><br /><br />
 
-                    <label htmlFor="description-input">Description:</label><br />
-                    <input id="description-input" type="text" placeholder={coffee.description} value={updateCoffee.description} onChange={(e) => setUpdateCoffee(prevUpdateCoffee => ({ ...prevUpdateCoffee, description: e.target.value }))} /><br /><br />
+                    <label htmlFor={descriptionID}>Description:</label><br />
+                    <input id={descriptionID} type="text" placeholder={coffee.description} value={updateCoffee.description} onChange={(e) => setUpdateCoffee(prevUpdateCoffee => ({ ...prevUpdateCoffee, description: e.target.value }))} /><br /><br />
 
-                    <label htmlFor="price-input">Price:</label><br />
-                    <input id="price-input" type="text" placeholder={coffee.price} value={updateCoffee.price} onChange={(e) => setUpdateCoffee(prevUpdateCoffee => ({ ...prevUpdateCoffee, price: e.target.value }))} /><br /><br />
+                    <label htmlFor={priceID}>Price:</label><br />
+                    <input id={priceID} type="text" placeholder={coffee.price} value={updateCoffee.price} onChange={(e) => setUpdateCoffee(prevUpdateCoffee => ({ ...prevUpdateCoffee, price: e.target.value }))} /><br /><br />
 
                     <button type="submit" >Update</button>
 
