@@ -41,6 +41,13 @@
       "name": "French Roast",
       "origin": "Brazil",
       "price": 11.5
+    },
+    {
+      "name": "Vanilla bean",
+      "description": "Apple Inc",
+      "origin": "Columbia",
+      "price": "0",
+      "id": "oOC2FAgjzrE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
