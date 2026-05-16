@@ -21,8 +21,6 @@ function CoffeeListings() {
 
                 <h1>Coffee Listings</h1>
 
-                <button onClick={() => handleClick()}>Coffee Data</button>
-
                 <SearchBar search={search} setSearch={setSearch} />
 
                 {!coffees ? 
