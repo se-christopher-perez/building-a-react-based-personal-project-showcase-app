@@ -25,10 +25,10 @@ describe("Display coffee", () => {
             </CoffeeContext.Provider>
         )
 
-        expect(await screen.findByText("Vanilla bean")).toBeInTheDocument()
-        expect(await screen.findByText("Medium Roast, nutty flavor")).toBeInTheDocument()
-        expect(await screen.findByText("10")).toBeInTheDocument()
-        expect(await screen.findByText("Columbia")).toBeInTheDocument()
+        expect(await screen.findByText(/Vanilla bean/i)).toBeInTheDocument()
+        expect(await screen.findByText(/Medium Roast, nutty flavor/i)).toBeInTheDocument()
+        expect(await screen.findByText(/10/i)).toBeInTheDocument()
+        expect(await screen.findByText(/Columbia/i)).toBeInTheDocument()
 
     })
 

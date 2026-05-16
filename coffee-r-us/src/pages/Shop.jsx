@@ -7,8 +7,6 @@ function Shop() {
         <>
             <div className="shop-container">
 
-                <h1>Shop!</h1>
-
                 <CoffeeListings />
 
             </div>

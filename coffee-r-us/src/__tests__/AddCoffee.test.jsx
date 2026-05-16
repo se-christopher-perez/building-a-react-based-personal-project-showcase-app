@@ -4,6 +4,7 @@ import AdminPortal from "../pages/AdminPortal"
 import { CoffeeContext } from "../context/CoffeeContext";
 import userEvent from "@testing-library/user-event";
 import CoffeeListings from "../components/CoffeeListings";
+import { MemoryRouter } from 'react-router-dom'
 
 describe("Adds coffee", () => {
 
@@ -35,9 +36,11 @@ describe("Adds coffee", () => {
         })
 
         render(
-            <CoffeeContext.Provider value={{ coffees: [coffee], setCoffees: vi.fn() }}>
-                <AdminPortal />
-            </CoffeeContext.Provider>
+            <MemoryRouter>
+                <CoffeeContext.Provider value={{ coffees: [coffee], setCoffees: vi.fn() }}>
+                    <AdminPortal />
+                </CoffeeContext.Provider>
+            </MemoryRouter>
         )
 
         await userEvent.type(screen.getByLabelText("Coffee Name"), "House Blend")
@@ -80,8 +83,8 @@ describe("Adds coffee", () => {
             </CoffeeContext.Provider>
         )
 
-        expect(screen.getByText("House Blend")).toBeInTheDocument()
-        expect(screen.getByText("Vanilla bean")).toBeInTheDocument()
+        expect(screen.getByText(/House Blend/i)).toBeInTheDocument()
+        expect(screen.getByText(/Vanilla bean/i)).toBeInTheDocument()
 
     })
 })

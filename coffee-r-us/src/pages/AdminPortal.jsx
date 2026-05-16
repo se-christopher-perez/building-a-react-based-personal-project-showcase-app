@@ -7,7 +7,7 @@ function AdminPortal() {
         <>
             <div className="admin-portal-container">
 
-                <h1>Admin Portal!</h1>
+                <h1>Add More Coffee!</h1>
 
                 <CoffeeForm />
 

@@ -62,7 +62,9 @@ function Coffee({ coffee, handleDelete }) {
 
     if (edit) return (
         <>
-            <div className="coffee-container">
+
+
+            <div className="coffee-contents-container" >
 
                 <form className="edit-form-container" onSubmit={handleSubmit}>
 
@@ -83,21 +85,26 @@ function Coffee({ coffee, handleDelete }) {
                 </form>
 
             </div>
+
+
+
         </>
     )
 
     return (
         <>
-            <div className="coffee-container">
 
-                <p>{coffee.name}</p>
-                <p>{coffee.origin}</p>
-                <p>{coffee.description}</p>
-                <p>{coffee.price}</p>
+            <div className="coffee-contents-container">
+
+                <p>Coffee Name: {coffee.name}</p>
+                <p>Origin: {coffee.origin}</p>
+                <p>Description: {coffee.description}</p>
+                <p>Price: ${coffee.price}</p>
                 <button onClick={() => setEdit(!edit)} >Edit</button>
                 <button onClick={() => handleDelete(coffee.id)} >Delete</button>
 
             </div>
+
         </>
     )
 }

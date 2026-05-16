@@ -19,17 +19,21 @@ function CoffeeListings() {
 
                 <h1>Coffee Listings</h1>
 
-                <SearchBar search={search} setSearch={setSearch} />
+                <SearchBar search={search} setSearch={setSearch} /><br />
 
-                {!coffees ? 
-                <p>No Coffee Found</p> :
-                filteredArray.map((coffee) => {
+                <div className="coffee-container" >
 
-                    return <Coffee key={coffee.id} coffee={coffee} handleDelete={handleDelete} />
+                    {!coffees ?
+                        <p>No Coffee Found</p> :
+                        filteredArray.map((coffee) => {
 
-                })
-                
-                }
+                            return <Coffee key={coffee.id} coffee={coffee} handleDelete={handleDelete} />
+
+                        })
+
+                    }
+
+                </div>
 
             </div>
         </>

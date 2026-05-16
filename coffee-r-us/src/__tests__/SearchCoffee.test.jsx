@@ -25,7 +25,7 @@ describe("Search coffee", () => {
                 "name": "House Blend",
                 "origin": "Vietnam",
                 "price": 12
-                
+
             }
         ]
 
@@ -35,13 +35,13 @@ describe("Search coffee", () => {
             </CoffeeContext.Provider>
         )
 
-        expect(await screen.findByText("Vanilla bean")).toBeInTheDocument()
-        expect(await screen.findByText("House Blend")).toBeInTheDocument()
+        expect(await screen.findByText(/Vanilla bean/i)).toBeInTheDocument()
+        expect(await screen.findByText(/House Blend/i)).toBeInTheDocument()
 
         await userEvent.type(screen.getByPlaceholderText(/search/i), "House Blend")
 
-        expect(screen.getByText("House Blend")).toBeInTheDocument()
-        expect(screen.queryByText("Vanilla bean")).not.toBeInTheDocument()
+        expect(screen.getByText(/House Blend/i)).toBeInTheDocument()
+        expect(screen.queryByText(/Vanilla bean/i)).not.toBeInTheDocument()
 
     })
 

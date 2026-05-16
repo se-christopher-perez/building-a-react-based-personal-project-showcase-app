@@ -16,7 +16,7 @@ function SearchBar({ search, setSearch }) {
         <>
             <div className="search-container">
 
-                <label htmlFor={searchID} >Search</label>
+                <label htmlFor={searchID} >Search: </label>
                 <input id={searchID} ref={inputRef} type="text" placeholder='Search...' value={search} onChange={(e) => setSearch(e.target.value)} />
 
             </div>

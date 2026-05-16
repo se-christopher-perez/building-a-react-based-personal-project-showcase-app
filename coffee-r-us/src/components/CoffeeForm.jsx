@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useId } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useCoffeeContext } from '../context/CoffeeContext'
 
 function CoffeeForm() {
@@ -14,6 +15,8 @@ function CoffeeForm() {
     const priceID = useId()
 
     const inputRef = useRef(null)
+
+    const navigate = useNavigate()
 
     useEffect(() => {
 
@@ -33,6 +36,24 @@ function CoffeeForm() {
     function handleSubmit(e) {
 
         e.preventDefault()
+
+        const parsedPrice = parseFloat(newCoffee.price)
+
+        if (!newCoffee.name || !newCoffee.description || !newCoffee.origin) {
+
+            alert("Fill in the form")
+
+            return
+
+        }
+
+        if (isNaN(parsedPrice)) {
+
+            alert("Price must be a number")
+
+            return
+
+        }
 
         fetch("http://localhost:8000/coffee", {
             method: "POST",
@@ -59,6 +80,8 @@ function CoffeeForm() {
 
                 inputRef.current.focus()
 
+                navigate("/shop")
+
             })
 
     }
@@ -68,23 +91,45 @@ function CoffeeForm() {
         <>
             <div className="coffee-form-container">
 
-                <h1>Add More Coffee!</h1>
-
                 <form className='form-container' onSubmit={handleSubmit}>
 
-                    <label htmlFor={nameID} >Coffee Name</label>
-                    <input id={nameID} ref={inputRef} type="text" value={newCoffee.name} onChange={(e) => setNewCoffee((prevCoffee) => ({ ...prevCoffee, name: e.target.value }))} />
+                    <div>
 
-                    <label htmlFor={descriptionID} >Description</label>
-                    <input id={descriptionID} type="text" value={newCoffee.description} onChange={(e) => setNewCoffee((prevCoffee) => ({ ...prevCoffee, description: e.target.value }))} />
+                        <label htmlFor={nameID} >Coffee Name</label><br />
+                        <input id={nameID} ref={inputRef} type="text" value={newCoffee.name} onChange={(e) => setNewCoffee((prevCoffee) => ({ ...prevCoffee, name: e.target.value }))} />
 
-                    <label htmlFor={originID} >Origin</label>
-                    <input id={originID} type="text" value={newCoffee.origin} onChange={(e) => setNewCoffee((prevCoffee) => ({ ...prevCoffee, origin: e.target.value }))} />
+                    </div>
 
-                    <label htmlFor={priceID} >Price</label>
-                    <input id={priceID} type="text" value={newCoffee.price} onChange={(e) => setNewCoffee((prevCoffee) => ({ ...prevCoffee, price: e.target.value }))} />
 
-                    <input type="submit" value="Submit"/>
+                    <div>
+
+                        <label htmlFor={descriptionID} >Description</label><br />
+                        <input id={descriptionID} type="text" value={newCoffee.description} onChange={(e) => setNewCoffee((prevCoffee) => ({ ...prevCoffee, description: e.target.value }))} />
+
+                    </div>
+
+
+                    <div>
+
+                        <label htmlFor={originID} >Origin</label><br />
+                        <input id={originID} type="text" value={newCoffee.origin} onChange={(e) => setNewCoffee((prevCoffee) => ({ ...prevCoffee, origin: e.target.value }))} />
+
+
+                    </div>
+
+                    <div>
+
+                        <label htmlFor={priceID} >Price</label><br />
+                        <input id={priceID} type="text" value={newCoffee.price} onChange={(e) => setNewCoffee((prevCoffee) => ({ ...prevCoffee, price: e.target.value }))} />
+
+                    </div>
+
+                    <div>
+
+                        <input type="submit" value="Submit" />
+
+                    </div>
+
 
                 </form>
 

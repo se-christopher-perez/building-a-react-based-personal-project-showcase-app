@@ -1,6 +1,6 @@
 /* color-options: #3e1e04 #6a3005 #965015 #c4p23e #cbac85 */
 
-body{
+body {
 
   background-color: #CBAC85;
   display: flex;
@@ -9,13 +9,13 @@ body{
 
 }
 
-.main-nav-container{
+.main-nav-container {
 
-  background-color: #6a3005;
+  background-color: #3e1e04;
 
 }
 
-.nav-container{
+.nav-container {
 
   display: flex;
   flex-direction: row;
@@ -23,12 +23,121 @@ body{
 
 }
 
-.nav-link{
+.nav-link {
 
   color: white;
   font-size: 50px;
   font-weight: bold;
   text-decoration: none;
   padding: 5px;
+
+}
+
+.home-container {
+
+  background-color: #965015;
+  border: 3px solid #3e1e04;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  height: 500px;
+  text-align: center;
+  margin: auto;
+
+}
+
+.home-container h1 {
+
+  font-size: 100px;
+
+}
+
+.home-container p {
+
+  font-size: 50px;
+
+}
+
+.coffee-listings-container {
+
+  background-color: #965015;
+  border: 3px solid #3e1e04;
+  border-radius: 5px;
+  width: 80%;
+  margin: auto;
+  padding-bottom: 25px;
+
+}
+
+.coffee-listings-container h1 {
+
+  text-align: center;
+  padding-top: 25px;
+
+}
+
+.search-container {
+
+  display: flex;
+  justify-content: center;
+
+}
+
+.coffee-container {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+
+}
+
+.coffee-contents-container {
+
+  text-align: center;
+  color: white;
+  background-color: #6a3005;
+  border: 3px solid #3e1e04;
+  border-radius: 5px;
+  padding: 10px;
+
+}
+
+.admin-portal-container {
+
+  background-color: #965015;
+  border: 3px solid #3e1e04;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  height: 500px;
+  text-align: center;
+  margin: auto;
+
+}
+
+.coffee-form-container {
+
+  background-color: #6a3005;
+  border: 3px solid #3e1e04;
+  width: 50%;
+  margin: auto;
+
+}
+
+.form-container{
+
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 10px;
+
+}
+
+.form-container{
+
+  color: white;
 
 }
