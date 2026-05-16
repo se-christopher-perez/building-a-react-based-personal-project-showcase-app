@@ -2,18 +2,16 @@ import React, { useState } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import Coffee from './Coffee'
 import SearchBar from './SearchBar'
+import useSearch from '../hooks/useSearch'
+import useDelete from '../hooks/useDelete'
 
 function CoffeeListings() {
 
-    const { coffees } = useOutletContext()
+    const { coffees, setCoffees } = useOutletContext()
 
-    const [search, setSearch] = useState("")
+    const { search, setSearch, filteredArray } = useSearch(coffees, "name")
 
-    const searchCoffee = coffees.filter((coffee) => {
-
-        return coffee.name.toLowerCase().includes(search.toLowerCase())
-
-    })
+    const { handleDelete } = useDelete(setCoffees)
 
     return (
         <>
@@ -25,9 +23,9 @@ function CoffeeListings() {
 
                 {!coffees ? 
                 <p>No Coffee Found</p> :
-                searchCoffee.map((coffee) => {
+                filteredArray.map((coffee) => {
 
-                    return <Coffee key={coffee.id} coffee={coffee}/>
+                    return <Coffee key={coffee.id} coffee={coffee} handleDelete={handleDelete} />
 
                 })
                 

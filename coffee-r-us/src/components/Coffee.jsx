@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useOutletContext } from "react-router-dom"
 
-function Coffee({ coffee }) {
+function Coffee({ coffee, handleDelete }) {
 
     const { coffees, setCoffees } = useOutletContext()
 
@@ -16,39 +16,39 @@ function Coffee({ coffee }) {
 
     const [edit, setEdit] = useState(false)
 
-    function handleSubmit(e){
+    function handleSubmit(e) {
 
         e.preventDefault()
 
         fetch(`http://localhost:8000/coffee/${coffee.id}`, {
 
             method: "PATCH",
-            headers: {"Content-Type": "application/json"},
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updateCoffee)
 
         })
-        .then(r => {
+            .then(r => {
 
-            if(!r.ok) {throw new Error("Issues with PATCH")}
+                if (!r.ok) { throw new Error("Issues with PATCH") }
 
-            return r.json()
-
-        })
-        .then(newCoffee => {
-
-            const updatedCoffees = coffees.map((c) => {
-
-                if(c.id === coffee.id) return newCoffee
-
-                return c
+                return r.json()
 
             })
+            .then(newCoffee => {
 
-            setCoffees(updatedCoffees)
+                const updatedCoffees = coffees.map((c) => {
 
-            setEdit(false)
+                    if (c.id === coffee.id) return newCoffee
 
-        })
+                    return c
+
+                })
+
+                setCoffees(updatedCoffees)
+
+                setEdit(false)
+
+            })
 
     }
 
@@ -87,6 +87,7 @@ function Coffee({ coffee }) {
                 <p>{coffee.description}</p>
                 <p>{coffee.price}</p>
                 <button onClick={() => setEdit(!edit)} >Edit</button>
+                <button onClick={() => handleDelete(coffee.id)} >Delete</button>
 
             </div>
         </>
