@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useOutletContext } from 'react-router-dom'
+import { useCoffeeContext } from '../context/CoffeeContext'
 import Coffee from './Coffee'
 import SearchBar from './SearchBar'
 import useSearch from '../hooks/useSearch'
@@ -7,7 +7,7 @@ import useDelete from '../hooks/useDelete'
 
 function CoffeeListings() {
 
-    const { coffees, setCoffees } = useOutletContext()
+    const { coffees, setCoffees } = useCoffeeContext()
 
     const { search, setSearch, filteredArray } = useSearch(coffees, "name")
 

@@ -5,6 +5,7 @@ import AdminPortal from './pages/AdminPortal'
 import './App.css'
 import MainLayout from './MainLayout'
 import { useEffect, useState } from 'react'
+import { CoffeeContext } from './context/CoffeeContext'
 
 function App() {
 
@@ -13,29 +14,31 @@ function App() {
   useEffect(() => {
 
     fetch("http://localhost:8000/coffee")
-    .then(r => {
+      .then(r => {
 
-      if(!r.ok) {throw new Error("Problem with the fetch")}
+        if (!r.ok) { throw new Error("Problem with the fetch") }
 
-      return r.json()
+        return r.json()
 
-    })
-    .then(data => setCoffees(data))
-    .catch(err => console.log(err))
+      })
+      .then(data => setCoffees(data))
+      .catch(err => console.log(err))
 
   }, [])
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<MainLayout coffees={coffees} setCoffees={setCoffees} />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/admin-portal" element={<AdminPortal />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <CoffeeContext.Provider value={{ coffees, setCoffees }}>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<MainLayout coffees={coffees} setCoffees={setCoffees} />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/admin-portal" element={<AdminPortal />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </CoffeeContext.Provider>
     </>
   )
 }
